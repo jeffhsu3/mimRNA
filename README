@@ -1,0 +1,13 @@
+An R and python package to analyze correlations between mRNA and miRNAs.  
+Requires:
+    edgeR
+    biomaRt
+    ggplot2
+
+TODO List:
+1. Grab TargetScan database from ensembl instead of local file
+2. Fix up plotting functions
+3. Fix up enrichment analysis
+
+
+Written by Jeff Hsu 2011
