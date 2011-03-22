@@ -26,19 +26,22 @@ permutateSamples <- function(mRNA, miRNA, pmut=24){
     t <- mat.or.vec(dim(corr)[1], dim(corr)[2])
     colnames(t) <- rownames(mRNA)
     rownames(t) <- rownames(miRNA)
+    # Hmm right now not accounting for the paired nature of the samples
+    # Need to permute only the left or the right samples
     for (x in c(1:pmut)){
-	index <-seq(1,dim(miRNA)[2]) 
-	permute <- sample(index)
-	if (all(permute == index)){
-	}else{
-	    permute_miRNA <- miRNA[,permute] 
-	    cor_permute <- cor(t(permute_miRNA), t(mRNA))
-	    temp <- (abs(corr) <= abs(cor_permute))*1
-	    t<-t + temp
-	    print(paste("Permutation ", x))
+	    index <-seq(1,dim(miRNA)[2]) 
+	    permute <- sample(index)
+	    if (all(permute == index)){
+	    }else{
+	        permute_miRNA <- miRNA[,permute] 
+	        cor_permute <- cor(t(permute_miRNA), t(mRNA))
+	        temp <- (abs(corr) <= abs(cor_permute))*1
+	        t<-t + temp
+	        print(paste("Permutation ", x))
 	}
     }
     # Returns a truth matrix
+    # Must beat 1/24 to be p <= 0.05
     t <- (t <= 1)
     t
 }

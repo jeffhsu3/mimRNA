@@ -38,7 +38,7 @@ plotMDS.dge <- function (x, top=500, labels=colnames(x), col=NULL, cex=1, dim.pl
 }
 
 plotMDS.GG <- function(dataframe){
-    g<-ggplot(temp, aes(Dimension1, Dimension2, shape=sample,color=tissue))
+    g<-ggplot(dataframe, aes(Dimension1, Dimension2, shape=sample,color=tissue))
     g + geom_point(size=7)+geom_vline(xintercept=0,col="red")+opts(title="miRNA counts MDS", plot.title=theme_text(size=48), axis.title.x=theme_text(size=30),
     axis.title.y=theme_text(angle=90,size=30), axis.text.y=theme_text(size=20),
     axis.text.x=theme_text(size=20))
