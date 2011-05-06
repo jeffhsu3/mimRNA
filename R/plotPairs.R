@@ -118,8 +118,7 @@ plotPairsGG <- function(gene, DGEList, design){
 removeSingletons <- function(DGEList, threshold=10, top="None"){
     if(!("DGEList" %in% class(DGEList)))
 	stop("Input should be of class DGEList.")
-
-    nonsingletons <- apply(DGEList$counts, 1, isHighest)
+nonsingletons <- apply(DGEList$counts, 1, isHighest)
     newDGEList <- DGEList
     newDGEList$counts <- newDGEList$counts[nonsingletons,]
     return(newDGEList) 

@@ -24,9 +24,7 @@ plotMDS.dge <- function (x, top=500, labels=colnames(x), col=NULL, cex=1, dim.pl
     label =c(0,-1.5,0,0,0,0,0,1.5)
     text_label <- c("Right_1", "Left_1", "Right_2", "Left_2", "Right_3",
     "Left_3","Right_4", "Left_4") 
-    temp <-
-    data.frame(Dimension2=a1[,dim.plot[2]],Dimension1=a1[,dim.plot[1]],sample=x$samples$patient,
-    tissue=x$samples$tissue) 
+    temp <- data.frame(Dimension2=a1[,dim.plot[2]],Dimension1=a1[,dim.plot[1]],sample=x$samples$patient,tissue=x$samples$tissue) 
     #g <- ggplot(data=temp, aes(x=Dimension1, y=Dimension2, shape=sample,
     #group=tissue ))
     #print(g + geom_vline(aes(yintercept=0,color="red"))+opts(title="MDS of Left-Right miRNA"))
